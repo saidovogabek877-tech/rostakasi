@@ -6,6 +6,9 @@
 
 <title>Saidov Og‘abek — Portfolio</title>
 
+<meta name="description"
+content="Saidov Og‘abek — shaxsiy portfolio, yutuqlar va faoliyat.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +25,7 @@ html{
 }
 
 body{
-  font-family:Inter,Arial,sans-serif;
+  font-family:"Inter",Arial,sans-serif;
   background:#05070a;
   color:#fff;
   line-height:1.6;
@@ -59,7 +62,7 @@ section{
   position:absolute;
   width:2px;
   height:2px;
-  background:white;
+  background:#fff;
   border-radius:50%;
   opacity:.4;
   animation:twinkle 3s infinite ease-in-out;
@@ -70,6 +73,7 @@ section{
     opacity:.15;
     transform:scale(.7);
   }
+
   50%{
     opacity:.8;
     transform:scale(1.3);
@@ -297,7 +301,7 @@ nav{
   place-items:center;
 }
 
-/* Aylanuvchi halqa */
+/* AYLANUVCHI YORUG‘LIK HALQASI */
 
 .profile-image-box::before{
   content:"";
@@ -362,7 +366,7 @@ nav{
   line-height:1.8;
 }
 
-/* TA'RIFLAR */
+/* TA’RIFLAR */
 
 .details{
   display:grid;
@@ -474,7 +478,7 @@ nav{
 }
 
 /* =========================
-   SHE'RLAR
+   SHE’RLAR
 ========================= */
 
 .poem-grid{
@@ -505,7 +509,7 @@ nav{
 }
 
 /* =========================
-   CONTACT
+   ALOQA
 ========================= */
 
 .contact{
@@ -856,7 +860,8 @@ footer{
       <h2>Erishilgan natijalar.</h2>
 
       <p>
-        Har bir karta ustiga bosing — kichik bayram siz uchun. 🎆
+        Ta’lim, sport, intellektual o‘yinlar va
+        loyihalardagi asosiy yutuqlar.
       </p>
 
     </div>
@@ -866,7 +871,9 @@ footer{
       <div class="achievement">
         <div class="achievement-number">01 / OLIMPIADA</div>
         <h3>“Bilim uchun 100 million”</h3>
-        <p>Olimpiadaning respublika bosqichi ishtirokchisi.</p>
+        <p>
+          Olimpiadaning respublika bosqichi ishtirokchisi.
+        </p>
       </div>
 
       <div class="achievement">
@@ -936,7 +943,7 @@ footer{
 
 </section>
 
-<!-- SHE'RLAR -->
+<!-- SHE’RLAR -->
 <section id="poems">
 
   <div class="container">
@@ -952,28 +959,43 @@ footer{
     <div class="poem-grid">
 
       <div class="poem">
-        <img src="sher1.jpg" alt="She’r 1"
-        onclick="openImage(this.src)">
+        <img
+          src="sher1.jpg"
+          alt="She’r 1"
+          onclick="openImage(this.src)"
+        >
       </div>
 
       <div class="poem">
-        <img src="sher2.jpg" alt="She’r 2"
-        onclick="openImage(this.src)">
+        <img
+          src="sher2.jpg"
+          alt="She’r 2"
+          onclick="openImage(this.src)"
+        >
       </div>
 
       <div class="poem">
-        <img src="sher3.jpg" alt="She’r 3"
-        onclick="openImage(this.src)">
+        <img
+          src="sher3.jpg"
+          alt="She’r 3"
+          onclick="openImage(this.src)"
+        >
       </div>
 
       <div class="poem">
-        <img src="sher4.jpg" alt="She’r 4"
-        onclick="openImage(this.src)">
+        <img
+          src="sher4.jpg"
+          alt="She’r 4"
+          onclick="openImage(this.src)"
+        >
       </div>
 
       <div class="poem">
-        <img src="sher5.jpg" alt="She’r 5"
-        onclick="openImage(this.src)">
+        <img
+          src="sher5.jpg"
+          alt="She’r 5"
+          onclick="openImage(this.src)"
+        >
       </div>
 
     </div>
@@ -1005,38 +1027,46 @@ footer{
         class="social-card"
         href="https://t.me/saidovon"
         target="_blank"
+        rel="noopener noreferrer"
       >
+
         <div class="social-icon">✈️</div>
 
         <div class="social-text">
           <strong>Telegram</strong>
           <span>@saidovon</span>
         </div>
+
       </a>
 
       <a
         class="social-card"
         href="https://www.instagram.com/_ogabek.saidov_/"
         target="_blank"
+        rel="noopener noreferrer"
       >
+
         <div class="social-icon">📸</div>
 
         <div class="social-text">
           <strong>Instagram</strong>
           <span>@_ogabek.saidov_</span>
         </div>
+
       </a>
 
       <a
         class="social-card"
         href="tel:+998939994465"
       >
+
         <div class="social-icon">📞</div>
 
         <div class="social-text">
           <strong>Telefon</strong>
           <span>+998 93 999 44 65</span>
         </div>
+
       </a>
 
     </div>
@@ -1045,6 +1075,7 @@ footer{
 
 </section>
 
+<!-- FOOTER -->
 <footer>
 
   <div class="container">
@@ -1066,7 +1097,12 @@ footer{
   onclick="closeImage()"
 >
   <div class="close-modal">×</div>
-  <img id="modalImage" src="" alt="Katta rasm">
+
+  <img
+    id="modalImage"
+    src=""
+    alt="Katta rasm"
+  >
 </div>
 
 <script>
@@ -1093,6 +1129,9 @@ for(let i=0;i<65;i++){
 
   star.style.animationDelay =
   Math.random()*4+"s";
+
+  star.style.animationDuration =
+  (2 + Math.random()*4)+"s";
 
   stars.appendChild(star);
 }
@@ -1121,7 +1160,7 @@ for(let i=0;i<3;i++){
 
 
 /* =========================
-   SALYUT
+   YUTUQ KARTASI — SALYUT
 ========================= */
 
 const achievementCards =
@@ -1129,7 +1168,7 @@ document.querySelectorAll(".achievement");
 
 achievementCards.forEach(card => {
 
-  card.addEventListener("click", function(event){
+  card.addEventListener("click",function(){
 
     const rect =
     card.getBoundingClientRect();
@@ -1157,39 +1196,8 @@ achievementCards.forEach(card => {
       Math.random()*Math.PI*2;
 
       const distance =
-      50 + Math.random()*120;
+      50+Math.random()*120;
 
       particle.style.setProperty(
         "--x",
-        Math.cos(angle)*distance+"px"
-      );
-
-      particle.style.setProperty(
-        "--y",
-        Math.sin(angle)*distance+"px"
-      );
-
-      particle.style.background =
-      `hsl(${Math.random()*360},90%,65%)`;
-
-      document.body.appendChild(particle);
-
-      setTimeout(()=>{
-        particle.remove();
-      },800);
-    }
-
-  });
-
-});
-
-
-/* =========================
-   MUSIQA
-========================= */
-
-const music =
-document.getElementById("music.mp3");
-
-const musicBtn =
-document.
+        Math.co
