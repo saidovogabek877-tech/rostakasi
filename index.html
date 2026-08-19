@@ -1,997 +1,1211 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Saidov Og‘abek — Portfolio</title>
-
-  <meta name="description"
-        content="Saidov Og‘abek — shaxsiy portfolio, yutuqlar va faoliyat.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(0, 255, 170, .12), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(80, 120, 255, .14), transparent 30%),
-        #07090d;
-      color: #fff;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(7, 9, 13, .8);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .logo span {
-      color: #00e6a8;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      font-size: 14px;
-      color: #b8bec9;
-    }
-
-    .nav-links a:hover {
-      color: #00e6a8;
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 70px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(0,230,168,.08);
-      border: 1px solid rgba(0,230,168,.22);
-      color: #00e6a8;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .badge::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      background: #00e6a8;
-      border-radius: 50%;
-      box-shadow: 0 0 12px #00e6a8;
-    }
-
-    h1 {
-      font-size: clamp(48px, 8vw, 86px);
-      line-height: .98;
-      letter-spacing: -4px;
-      margin-bottom: 24px;
-    }
-
-    h1 span {
-      background: linear-gradient(90deg, #00e6a8, #67a7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-text {
-      color: #aeb5c0;
-      font-size: 18px;
-      max-width: 650px;
-      margin-bottom: 32px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: .25s;
-    }
-
-    .btn-primary {
-      background: #00e6a8;
-      color: #04110d;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,230,168,.2);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateY(-3px);
-    }
-
-    /* PROFILE */
-    .profile-card {
-      position: relative;
-      padding: 32px;
-      border-radius: 28px;
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.025)
-      );
-      border: 1px solid rgba(255,255,255,.1);
-      box-shadow: 0 30px 80px rgba(0,0,0,.35);
-      overflow: hidden;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      background: #00e6a8;
-      filter: blur(90px);
-      opacity: .14;
-      top: -80px;
-      right: -70px;
-    }
-
-    /* RASM */
-    .avatar {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 24px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #00e6a8;
-      box-shadow: 0 15px 50px rgba(0,230,168,.25);
-      background: #111;
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-card h2 {
-      font-size: 28px;
-      margin-bottom: 5px;
-    }
-
-    .role {
-      color: #00e6a8;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .info {
-      display: grid;
-      gap: 12px;
-    }
-
-    .info-item {
-      padding: 13px 14px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.06);
-    }
-
-    .info-item small {
-      display: block;
-      color: #747d8a;
-      font-size: 11px;
-      margin-bottom: 2px;
-    }
-
-    .info-item strong {
-      font-size: 14px;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      margin-bottom: 45px;
-    }
-
-    .section-label {
-      color: #00e6a8;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(34px, 5vw, 54px);
-      letter-spacing: -2px;
-      line-height: 1.05;
-    }
-
-    .section-title p {
-      margin-top: 14px;
-      color: #858e9b;
-      max-width: 650px;
-    }
-
-    /* ACHIEVEMENTS */
-    .achievements {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .achievement {
-      padding: 26px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.08);
-      transition: .3s;
-    }
-
-    .achievement:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0,230,168,.3);
-    }
-
-    .achievement-number {
-      color: #00e6a8;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .achievement h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .achievement p {
-      color: #8e97a4;
-      font-size: 14px;
-    }
-
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin-top: 35px;
-    }
-
-    .stat {
-      text-align: center;
-      padding: 28px 15px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.07);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 32px;
-      color: #00e6a8;
-    }
-
-    .stat span {
-      color: #808895;
-      font-size: 12px;
-    }
-
-    /* ACTIVITY */
-    .activity {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .activity-card {
-      padding: 28px;
-      border-radius: 20px;
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.055),
-        rgba(255,255,255,.02)
-      );
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .activity-icon {
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
-
-    .activity-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .activity-card p {
-      color: #858e9b;
-      font-size: 14px;
-    }
-
-    /* SOCIAL */
-    .social {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .social-card {
-      flex: 1;
-      min-width: 220px;
-      padding: 22px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      transition: .3s;
-    }
-
-    .social-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0,230,168,.3);
-    }
-
-    .social-card strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .social-card span {
-      color: #858e9b;
-      font-size: 13px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid rgba(255,255,255,.07);
-      color: #69717d;
-      text-align: center;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 850px) {
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .achievements {
-        grid-template-columns: 1fr;
-      }
-
-      .activity {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      section {
-        padding: 75px 0;
-      }
-
-      .profile-card {
-        padding: 24px;
-      }
-
-      .stats {
-        gap: 10px;
-      }
-
-      .stat {
-        padding: 20px 10px;
-      }
-
-      .stat strong {
-        font-size: 26px;
-      }
-    }
-
-    /* ANIMATION */
-    .fade {
-      animation: fadeUp .8s ease both;
-    }
-
-    @keyframes fadeUp {
-
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saidov Og‘abek | Portfolio</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#05070b;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* ANIMATED BACKGROUND */
+
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  filter:blur(130px);
+  z-index:-1;
+  opacity:.16;
+  animation:move 9s infinite alternate ease-in-out;
+}
+
+body::before{
+  background:#00e6a8;
+  top:-200px;
+  left:-180px;
+}
+
+body::after{
+  background:#536dff;
+  right:-180px;
+  bottom:-200px;
+  animation-delay:2s;
+}
+
+@keyframes move{
+  from{transform:translate(0,0)}
+  to{transform:translate(120px,80px)}
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(5,7,11,.65);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#00e6a8;
+}
+
+.nav-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+  color:#aeb5c0;
+  font-size:14px;
+}
+
+.nav-links a{
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#00e6a8;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 0 80px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:70px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 15px;
+  border:1px solid rgba(0,230,168,.25);
+  background:rgba(0,230,168,.07);
+  color:#00e6a8;
+  border-radius:50px;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.badge i{
+  width:7px;
+  height:7px;
+  background:#00e6a8;
+  border-radius:50%;
+  box-shadow:0 0 15px #00e6a8;
+}
+
+h1{
+  font-size:clamp(58px,9vw,105px);
+  line-height:.88;
+  letter-spacing:-6px;
+  margin-bottom:28px;
+}
+
+h1 span{
+  background:linear-gradient(90deg,#00e6a8,#668cff,#c96cff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:200%;
+  animation:gradient 5s infinite alternate;
+}
+
+@keyframes gradient{
+  from{background-position:0%}
+  to{background-position:100%}
+}
+
+.hero-text{
+  max-width:650px;
+  color:#99a2b0;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:32px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 20px;
+  border-radius:14px;
+  font-weight:700;
+  font-size:14px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.primary{
+  color:#03100c;
+  background:#00e6a8;
+}
+
+.primary:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 40px rgba(0,230,168,.3);
+}
+
+.secondary{
+  background:rgba(255,255,255,.04);
+}
+
+.secondary:hover{
+  transform:translateY(-5px);
+  border-color:#00e6a8;
+}
+
+/* PROFILE */
+
+.profile{
+  padding:32px;
+  border-radius:30px;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.09),
+    rgba(255,255,255,.025)
+  );
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 90px rgba(0,0,0,.45);
+  animation:float 5s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+.profile-photo{
+  width:190px;
+  height:190px;
+  object-fit:cover;
+  display:block;
+  margin:0 auto 25px;
+  border-radius:50%;
+  border:4px solid #00e6a8;
+  box-shadow:
+    0 0 0 9px rgba(0,230,168,.06),
+    0 20px 60px rgba(0,230,168,.2);
+}
+
+.profile h2{
+  text-align:center;
+  font-size:27px;
+}
+
+.role{
+  text-align:center;
+  color:#00e6a8;
+  margin:6px 0 25px;
+  font-size:14px;
+}
+
+.info{
+  display:grid;
+  gap:10px;
+}
+
+.info div{
+  padding:13px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+}
+
+.info small{
+  display:block;
+  color:#707988;
+  font-size:10px;
+}
+
+.info strong{
+  font-size:13px;
+}
+
+/* GENERAL */
+
+section{
+  padding:110px 0;
+}
+
+.label{
+  color:#00e6a8;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:13px;
+}
+
+.title{
+  font-size:clamp(38px,6vw,65px);
+  letter-spacing:-3px;
+  line-height:1;
+  margin-bottom:18px;
+}
+
+.description{
+  color:#858e9b;
+  line-height:1.8;
+  max-width:700px;
+  margin-bottom:40px;
+}
+
+/* ABOUT */
+
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.about-text{
+  color:#9ba4b2;
+  line-height:1.9;
+}
+
+.about-card{
+  padding:30px;
+  border-radius:25px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.about-card div{
+  padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.about-card div:last-child{
+  border:0;
+}
+
+.about-card small{
+  display:block;
+  color:#6f7886;
+  font-size:10px;
+  margin-bottom:4px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+
+.stat{
+  padding:28px 10px;
+  text-align:center;
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+  transition:.3s;
+}
+
+.stat:hover{
+  transform:translateY(-8px);
+  border-color:#00e6a8;
+}
+
+.stat strong{
+  display:block;
+  font-size:34px;
+  color:#00e6a8;
+}
+
+.stat span{
+  color:#7f8997;
+  font-size:12px;
+}
+
+/* POEM BUTTON */
+
+.poem-button-area{
+  margin-top:45px;
+  text-align:center;
+}
+
+.poem-button{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:16px 25px;
+  border-radius:50px;
+  color:#03100c;
+  background:#00e6a8;
+  font-weight:800;
+  box-shadow:0 10px 40px rgba(0,230,168,.15);
+  transition:.3s;
+}
+
+.poem-button:hover{
+  transform:translateY(-5px) scale(1.03);
+  box-shadow:0 20px 50px rgba(0,230,168,.3);
+}
+
+/* POEMS */
+
+#poems{
+  position:relative;
+}
+
+.poem-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.poem{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  background:#0b0e14;
+  border:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+  transition:.4s;
+}
+
+.poem:hover{
+  transform:translateY(-10px);
+  border-color:#00e6a8;
+  box-shadow:0 25px 70px rgba(0,0,0,.5);
+}
+
+.poem img{
+  width:100%;
+  height:430px;
+  object-fit:cover;
+  display:block;
+  transition:.5s;
+}
+
+.poem:hover img{
+  transform:scale(1.04);
+}
+
+.poem-name{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:45px 22px 20px;
+  background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.95)
+  );
+  font-weight:800;
+}
+
+/* ACHIEVEMENTS */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:27px;
+  border-radius:22px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.35s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(0,230,168,.4);
+}
+
+.number{
+  color:#00e6a8;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#858e9b;
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* ACTIVITY */
+
+.activity{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+/* CONTACT */
+
+.contact{
+  padding:45px;
+  border-radius:30px;
+  background:linear-gradient(
+    135deg,
+    rgba(0,230,168,.08),
+    rgba(70,100,255,.08)
+  );
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.social{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  padding:18px 23px;
+  border-radius:15px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.3s;
+}
+
+.social a:hover{
+  transform:translateY(-5px);
+  border-color:#00e6a8;
+}
+
+.social span{
+  display:block;
+  color:#7f8997;
+  font-size:13px;
+  margin-top:3px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  backdrop-filter:blur(15px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal img{
+  max-width:95%;
+  max-height:90vh;
+  border-radius:15px;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* ANIMATION */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:1s;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero-grid,
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .poem-grid,
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .activity{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .hero{
+    padding-top:110px;
+  }
+
+  h1{
+    font-size:60px;
+  }
+
+  section{
+    padding:80px 0;
+  }
+
+  .profile{
+    padding:25px;
+  }
+
+  .profile-photo{
+    width:160px;
+    height:160px;
+  }
+
+  .poem img{
+    height:330px;
+  }
+
+  .contact{
+    padding:28px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="container nav-inner">
+<!-- NAVBAR -->
 
-      <div class="logo">
-        Og‘abek<span>.</span>
-      </div>
+<nav>
 
-      <ul class="nav-links">
-        <li><a href="#about">Men haqimda</a></li>
-        <li><a href="#achievements">Yutuqlar</a></li>
-        <li><a href="#activity">Faoliyat</a></li>
-        <li><a href="#contact">Aloqa</a></li>
-      </ul>
+<div class="container nav">
 
-    </div>
-  </nav>
+<div class="logo">
+Og‘abek<span>.</span>
+</div>
 
+<ul class="nav-links">
 
-  <!-- HERO -->
-  <header class="hero">
+<li><a href="#about">Men haqimda</a></li>
+<li><a href="#poems">She’rlar</a></li>
+<li><a href="#achievements">Yutuqlar</a></li>
+<li><a href="#activity">Faoliyat</a></li>
+<li><a href="#contact">Aloqa</a></li>
 
-    <div class="container hero-grid">
+</ul>
 
-      <div class="fade">
+</div>
 
-        <div class="badge">
-          Portfolio • 2026
-        </div>
+</nav>
 
-        <h1>
-          Saidov<br>
-          <span>Og‘abek.</span>
-        </h1>
 
-        <p class="hero-text">
-          Samarqand davlat universiteti talabasi, intellektual
-          musobaqalar, startap loyihalar va innovatsion tashabbuslarda
-          faol ishtirok etuvchi yosh.
-        </p>
+<!-- HERO -->
 
-        <div class="buttons">
+<header class="hero">
 
-          <a href="#about" class="btn btn-primary">
-            Men haqimda →
-          </a>
+<div class="container hero-grid">
 
-          <a href="#contact" class="btn btn-secondary">
-            Bog‘lanish
-          </a>
+<div>
 
-        </div>
+<div class="badge">
+<i></i>
+Portfolio • 2026
+</div>
 
-      </div>
+<h1>
+Saidov<br>
+<span>Og‘abek.</span>
+</h1>
 
+<p class="hero-text">
 
-      <!-- PROFILE CARD -->
-      <div class="profile-card fade">
+Samarqand davlat universiteti talabasi.
+Bilim, sport, intellektual musobaqalar va
+turli loyihalarda faol ishtirok etuvchi yosh.
 
-        <!-- MUHIM: RASM FAYLI ogabek.jpg -->
-        <div class="avatar">
-          <img
-            src="./ogabek.jpg"
-            alt="Saidov Og‘abek"
-          >
-        </div>
+</p>
 
-        <h2>
-          Saidov Og‘abek
-        </h2>
+<div class="buttons">
 
-        <div class="role">
-          Talaba • Yosh tashabbuskor
-        </div>
+<a href="#about" class="btn primary">
+Men haqimda →
+</a>
 
-        <div class="info">
+<a href="#poems" class="btn secondary">
+She’rlar ↓
+</a>
 
-          <div class="info-item">
-            <small>Tug‘ilgan sana</small>
-            <strong>15-yanvar 2008-yil</strong>
-          </div>
+<a href="#contact" class="btn secondary">
+Bog‘lanish
+</a>
 
-          <div class="info-item">
-            <small>Tug‘ilgan joy</small>
-            <strong>Samarqand viloyati, Narpay tumani</strong>
-          </div>
+</div>
 
-          <div class="info-item">
-            <small>Fuqaroligi</small>
-            <strong>O‘zbekiston Respublikasi</strong>
-          </div>
+</div>
 
-          <div class="info-item">
-            <small>Ta’lim</small>
-            <strong>Samarqand davlat universiteti</strong>
-          </div>
 
-        </div>
+<!-- PROFILE -->
 
-      </div>
+<div class="profile">
 
-    </div>
+<img
+src="./ogabek.jpg"
+alt="Saidov Og‘abek"
+class="profile-photo"
+>
 
-  </header>
+<h2>
+Saidov Og‘abek
+</h2>
 
+<div class="role">
+Talaba • Yosh
+</div>
 
-  <!-- ABOUT -->
-  <section id="about">
+<div class="info">
 
-    <div class="container">
+<div>
+<small>Tug‘ilgan sana</small>
+<strong>15-yanvar 2008-yil</strong>
+</div>
 
-      <div class="section-title">
+<div>
+<small>Tug‘ilgan joy</small>
+<strong>Samarqand viloyati, Narpay tumani</strong>
+</div>
 
-        <div class="section-label">
-          01 — Men haqimda
-        </div>
+<div>
+<small>Fuqaroligi</small>
+<strong>O‘zbekiston Respublikasi</strong>
+</div>
 
-        <h2>
-          Bilim, tajriba va<br>
-          yangi imkoniyatlar.
-        </h2>
+<div>
+<small>Ta’lim</small>
+<strong>Samarqand davlat universiteti</strong>
+</div>
 
-        <p>
-          Men turli ta’limiy, intellektual, sport va innovatsion
-          loyihalarda faol qatnashib, yangi tajribalar orttirishga
-          intilaman.
-        </p>
+</div>
 
-      </div>
+</div>
 
+</div>
 
-      <div class="stats">
+</header>
 
-        <div class="stat">
-          <strong>8+</strong>
-          <span>Asosiy yutuqlar</span>
-        </div>
 
-        <div class="stat">
-          <strong>3+</strong>
-          <span>Yo‘nalish</span>
-        </div>
+<!-- ABOUT -->
 
-        <div class="stat">
-          <strong>10+</strong>
-          <span>Loyiha va tadbirlar</span>
-        </div>
+<section id="about">
 
-        <div class="stat">
-          <strong>2026</strong>
-          <span>Faoliyat yili</span>
-        </div>
+<div class="container reveal">
 
-      </div>
+<div class="label">
+01 — MEN HAQIMDA
+</div>
 
-    </div>
+<h2 class="title">
+Bilim. Harakat. Natija.
+</h2>
 
-  </section>
+<p class="description">
 
+Men — Saidov Og‘abek. Samarqand davlat universiteti
+talabasiman. Ta’lim, intellektual musobaqalar,
+sport va turli loyihalarda faol qatnashaman.
 
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
+</p>
 
-    <div class="container">
+<div class="about">
 
-      <div class="section-title">
+<div>
 
-        <div class="section-label">
-          02 — Yutuqlar
-        </div>
+<p class="about-text">
 
-        <h2>
-          Erishilgan natijalar.
-        </h2>
+Yangi bilimlarni o‘rganish, tajriba orttirish,
+o‘z ustimda ishlash va yangi imkoniyatlarni
+sinab ko‘rish — mening asosiy yo‘nalishlarimdan.
 
-        <p>
-          Ta’lim, sport, intellektual o‘yinlar va innovatsion
-          loyihalardagi asosiy yutuqlar.
-        </p>
+</p>
 
-      </div>
+</div>
 
+<div class="about-card">
 
-      <div class="achievements">
+<div>
+<small>F.I.Sh.</small>
+<strong>Saidov Og‘abek</strong>
+</div>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            01 / OLIMPIADA
-          </div>
+<div>
+<small>Tug‘ilgan sana</small>
+<strong>15-yanvar 2008-yil</strong>
+</div>
 
-          <h3>
-            “Bilim uchun 100 million”
-          </h3>
+<div>
+<small>Tug‘ilgan joy</small>
+<strong>Samarqand viloyati, Narpay tumani</strong>
+</div>
 
-          <p>
-            Olimpiadaning respublika bosqichi ishtirokchisi.
-          </p>
-        </div>
+<div>
+<small>Ta’lim</small>
+<strong>Samarqand davlat universiteti</strong>
+</div>
 
+</div>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            02 / INFORMATIKA
-          </div>
+</div>
 
-          <h3>
-            Informatika va axborot texnologiyalari
-          </h3>
 
-          <p>
-            Viloyat bosqichi g‘olibi hamda muddatidan oldin
-            talaba bo‘lish imkoniyatini qo‘lga kiritgan.
-          </p>
-        </div>
+<div class="stats">
 
+<div class="stat">
+<strong>8+</strong>
+<span>Asosiy yutuqlar</span>
+</div>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            03 / ZAKOVAT
-          </div>
+<div class="stat">
+<strong>3+</strong>
+<span>Yo‘nalish</span>
+</div>
 
-          <h3>
-            “Zakovat” intellektual o‘yinlari
-          </h3>
+<div class="stat">
+<strong>10+</strong>
+<span>Loyiha va tadbirlar</span>
+</div>
 
-          <p>
-            Bir necha bor tuman g‘olibi va viloyat bosqichi
-            ishtirokchisi.
-          </p>
-        </div>
+<div class="stat">
+<strong>2026</strong>
+<span>Faoliyat yili</span>
+</div>
 
+</div>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            04 / FUTBOL
-          </div>
 
-          <h3>
-            DXX kubogi
-          </h3>
+<!-- SHE'RLARGA TUGMA -->
 
-          <p>
-            Futbol bo‘yicha jamoasi bilan DXX kubogi
-            musobaqasining 3-o‘rin sohibi.
-          </p>
-        </div>
+<div class="poem-button-area">
 
+<a href="#poems" class="poem-button">
+📝 Men haqimda yozilgan she’rlar ↓
+</a>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            05 / SHAXMAT
-          </div>
+</div>
 
-          <h3>
-            Shaxmat
-          </h3>
+</div>
 
-          <p>
-            Bir necha bor tuman chempioni.
-          </p>
-        </div>
+</section>
 
 
-        <div class="achievement">
-          <div class="achievement-number">
-            06 / CAMP
-          </div>
+<!-- POEMS -->
 
-          <h3>
-            Ta’limiy va rivojlantiruvchi camp
-          </h3>
+<section id="poems">
 
-          <p>
-            Turli ta’limiy va rivojlantiruvchi camp va
-            lagerlarning faol ishtirokchisi.
-          </p>
-        </div>
+<div class="container reveal">
 
+<div class="label">
+02 — IJODIY SAHIFA
+</div>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            07 / STARTUP
-          </div>
+<h2 class="title">
+Men haqimda yozilgan<br>
+she’rlar.
+</h2>
 
-          <h3>
-            Startap va innovatsiya
-          </h3>
+<p class="description">
 
-          <p>
-            Startap loyihalar va innovatsion tashabbuslarda
-            faol ishtirokchi.
-          </p>
-        </div>
+Men haqimda yozilgan she’rlar va ijodiy satrlar.
+Rasm ustiga bosib, uni katta ko‘rinishda ko‘rishingiz mumkin.
 
+</p>
 
-        <div class="achievement">
-          <div class="achievement-number">
-            08 / KOORDINATOR
-          </div>
 
-          <h3>
-            Loyiha koordinatsiyasi
-          </h3>
+<div class="poem-grid">
 
-          <p>
-            Viloyat miqyosidagi loyihalarda koordinator sifatida
-            faoliyat yuritgan.
-          </p>
-        </div>
+<div class="poem" onclick="openImage('sher1.jpg')">
 
-      </div>
+<img src="sher1.jpg" alt="She'r 1">
 
-    </div>
+<div class="poem-name">
+She’r №01
+</div>
 
-  </section>
+</div>
 
 
-  <!-- ACTIVITY -->
-  <section id="activity">
+<div class="poem" onclick="openImage('sher2.jpg')">
 
-    <div class="container">
+<img src="sher2.jpg" alt="She'r 2">
 
-      <div class="section-title">
+<div class="poem-name">
+She’r №02
+</div>
 
-        <div class="section-label">
-          03 — Faoliyat
-        </div>
+</div>
 
-        <h2>
-          Qiziqishlar va yo‘nalishlar.
-        </h2>
 
-      </div>
+<div class="poem" onclick="openImage('sher3.jpg')">
 
+<img src="sher3.jpg" alt="She'r 3">
 
-      <div class="activity">
+<div class="poem-name">
+She’r №03
+</div>
 
-        <div class="activity-card">
-          <div class="activity-icon">💡</div>
+</div>
 
-          <h3>
-            Innovatsiya
-          </h3>
 
-          <p>
-            Yangi g‘oyalar, innovatsion tashabbuslar va
-            startap loyihalar bilan ishlash.
-          </p>
-        </div>
+<div class="poem" onclick="openImage('sher4.jpg')">
 
+<img src="sher4.jpg" alt="She'r 4">
 
-        <div class="activity-card">
-          <div class="activity-icon">🧠</div>
+<div class="poem-name">
+She’r №04
+</div>
 
-          <h3>
-            Intellektual rivojlanish
-          </h3>
+</div>
 
-          <p>
-            Zakovat, shaxmat va turli bilim musobaqalarida
-            qatnashish.
-          </p>
-        </div>
+</div>
 
+</div>
 
-        <div class="activity-card">
-          <div class="activity-icon">⚽</div>
+</section>
 
-          <h3>
-            Sport
-          </h3>
 
-          <p>
-            Futbol va shaxmat orqali jamoaviylik,
-            strategik fikrlash va intizomni rivojlantirish.
-          </p>
-        </div>
+<!-- ACHIEVEMENTS -->
 
+<section id="achievements">
 
-        <div class="activity-card">
-          <div class="activity-icon">🚀</div>
+<div class="container reveal">
 
-          <h3>
-            Loyiha boshqaruvi
-          </h3>
+<div class="label">
+03 — YUTUQLAR
+</div>
 
-          <p>
-            Ishtirokchilar bilan ishlash, jamoani
-            muvofiqlashtirish va tadbirlarni tashkil etish.
-          </p>
-        </div>
+<h2 class="title">
+Erishilgan natijalar.
+</h2>
 
+<div class="cards">
 
-        <div class="activity-card">
-          <div class="activity-icon">🎓</div>
+<div class="card">
+<div class="number">01 / OLIMPIADA</div>
+<h3>“Bilim uchun 100 million”</h3>
+<p>Olimpiadaning respublika bosqichi ishtirokchisi.</p>
+</div>
 
-          <h3>
-            Ta’lim
-          </h3>
+<div class="card">
+<div class="number">02 / INFORMATIKA</div>
+<h3>Informatika va AT</h3>
+<p>Viloyat bosqichi g‘olibi hamda muddatidan oldin talaba bo‘lish imkoniyatini qo‘lga kiritgan.</p>
+</div>
 
-          <p>
-            Yangi bilimlarni o‘rganish va ta’limiy
-            loyihalarda faol ishtirok etish.
-          </p>
-        </div>
+<div class="card">
+<div class="number">03 / ZAKOVAT</div>
+<h3>“Zakovat”</h3>
+<p>Bir necha bor tuman g‘olibi va viloyat bosqichi ishtirokchisi.</p>
+</div>
 
+<div class="card">
+<div class="number">04 / FUTBOL</div>
+<h3>DXX kubogi</h3>
+<p>Futbol bo‘yicha jamoasi bilan 3-o‘rin sohibi.</p>
+</div>
 
-        <div class="activity-card">
-          <div class="activity-icon">🤝</div>
+<div class="card">
+<div class="number">05 / SHAXMAT</div>
+<h3>Shaxmat</h3>
+<p>Bir necha bor turnirlar g‘olibi.</p>
+</div>
 
-          <h3>
-            Networking
-          </h3>
+<div class="card">
+<div class="number">06 / CAMP</div>
+<h3>Ta’limiy camp</h3>
+<p>Turli ta’limiy va rivojlantiruvchi camp hamda lagerlarning faol ishtirokchisi.</p>
+</div>
 
-          <p>
-            Yangi insonlar bilan tanishish, tajriba almashish
-            va jamoaviy loyihalarda ishlash.
-          </p>
-        </div>
+<div class="card">
+<div class="number">07 / STARTUP</div>
+<h3>Startap loyihalar</h3>
+<p>Startap loyihalar va turli tashabbuslarda faol ishtirokchi.</p>
+</div>
 
-      </div>
+<div class="card">
+<div class="number">08 / KOORDINATOR</div>
+<h3>Loyiha koordinatsiyasi</h3>
+<p>Viloyat miqyosidagi loyihalarda koordinator sifatida faoliyat yuritgan.</p>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
 
-    <div class="container">
+<!-- ACTIVITY -->
 
-      <div class="section-title">
+<section id="activity">
 
-        <div class="section-label">
-          04 — Aloqa
-        </div>
+<div class="container reveal">
 
-        <h2>
-          Men bilan bog‘laning.
-        </h2>
+<div class="label">
+04 — FAOLIYAT
+</div>
 
-        <p>
-          Ijtimoiy tarmoqlar orqali bog‘lanishingiz mumkin.
-        </p>
+<h2 class="title">
+Qiziqishlar.
+</h2>
 
-      </div>
+<div class="activity">
 
+<div class="card">
+<div class="activity-icon">🧠</div>
+<h3>Intellektual rivojlanish</h3>
+<p>Zakovat, shaxmat va bilim musobaqalarida qatnashish.</p>
+</div>
 
-      <div class="social">
+<div class="card">
+<div class="activity-icon">🎓</div>
+<h3>Ta’lim</h3>
+<p>Yangi bilimlarni o‘rganish va ta’limiy loyihalarda qatnashish.</p>
+</div>
 
-        <a
-          class="social-card"
-          href="https://www.instagram.com/_ogabek.saidov_/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <strong>
-            Instagram ↗
-          </strong>
+<div class="card">
+<div class="activity-icon">⚽</div>
+<h3>Sport</h3>
+<p>Futbol va shaxmat bilan shug‘ullanish.</p>
+</div>
 
-          <span>
-            @_ogabek.saidov_
-          </span>
-        </a>
+<div class="card">
+<div class="activity-icon">🚀</div>
+<h3>Loyihalar</h3>
+<p>Turli loyihalar va yangi tashabbuslarda qatnashish.</p>
+</div>
 
+<div class="card">
+<div class="activity-icon">🤝</div>
+<h3>Networking</h3>
+<p>Yangi insonlar bilan tanishish va tajriba almashish.</p>
+</div>
 
-        <div class="social-card">
+<div class="card">
+<div class="activity-icon">💡</div>
+<h3>Yangi g‘oyalar</h3>
+<p>Yangi imkoniyatlar va foydali g‘oyalarni izlash.</p>
+</div>
 
-          <strong>
-            Telegram
-          </strong>
+</div>
 
-          <span>
-            Telegram havolasi tez orada
-          </span>
+</div>
 
-        </div>
+</section>
 
-      </div>
 
-    </div>
+<!-- CONTACT -->
 
-  </section>
+<section id="contact">
 
+<div class="container reveal">
 
-  <!-- FOOTER -->
-  <footer>
+<div class="contact">
 
-    <div class="container">
-      © 2026 Saidov Og‘abek. Barcha huquqlar himoyalangan.
-    </div>
+<div class="label">
+05 — ALOQA
+</div>
 
-  </footer>
+<h2 class="title">
+Men bilan bog‘laning.
+</h2>
+
+<div class="social">
+
+<a
+href="https://www.instagram.com/_ogabek.saidov_/"
+target="_blank"
+rel="noopener"
+>
+
+<strong>Instagram ↗</strong>
+<span>@_ogabek.saidov_</span>
+
+</a>
+
+<a
+href="https://t.me/"
+target="_blank"
+rel="noopener"
+>
+
+<strong>Telegram ↗</strong>
+<span>Telegram</span>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Saidov Og‘abek. Barcha huquqlar himoyalangan.
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div
+class="modal"
+id="modal"
+onclick="closeImage()"
+>
+
+<div class="close">
+×
+</div>
+
+<img
+id="modalImg"
+src=""
+alt="She'r"
+onclick="event.stopPropagation()"
+>
+
+</div>
+
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{threshold:.12}
+
+);
+
+document
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
+
+
+/* IMAGE */
+
+function openImage(src){
+
+document.getElementById("modalImg").src=src;
+
+document
+.getElementById("modal")
+.classList.add("show");
+
+}
+
+function closeImage(){
+
+document
+.getElementById("modal")
+.classList.remove("show");
+
+}
+
+</script>
 
 </body>
-          </html>
-          
+  </html>
