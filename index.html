@@ -1,318 +1,997 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ogʻabek Saidov | Official Website</title>
+  <title>Saidov Og‘abek — Portfolio</title>
 
-<meta name="description" content="Ogʻabek Saidov — shaxsiy rasmiy sahifa. Faoliyati, loyihalari, yutuqlari va qiziqishlari haqida maʼlumot.">
+  <meta name="description"
+        content="Saidov Og‘abek — shaxsiy portfolio, yutuqlar va faoliyat.">
 
-<meta name="keywords" content="Ogʻabek Saidov, Ogabek Saidov, Saidov Ogʻabek">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f4f7fb;
-    color: #111827;
-}
-
-header {
-    background: #111827;
-    color: white;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h2 {
-    font-size: 22px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-}
-
-.hero {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    padding: 60px 8%;
-    background: white;
-}
-
-.hero-text {
-    max-width: 600px;
-}
-
-.hero-text .small {
-    color: #2563eb;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: 52px;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #2563eb;
-}
-
-.hero p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #4b5563;
-}
-
-.photo {
-    width: 300px;
-    height: 360px;
-    border-radius: 25px;
-    object-fit: cover;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-}
-
-section {
-    padding: 70px 8%;
-}
-
-section h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 35px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 30px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-.card h3 {
-    color: #2563eb;
-    margin-bottom: 12px;
-}
-
-.card p {
-    color: #555;
-    line-height: 1.6;
-}
-
-.social {
-    text-align: center;
-    background: #111827;
-    color: white;
-}
-
-.social h2 {
-    color: white;
-}
-
-.social a {
-    display: inline-block;
-    margin: 8px;
-    padding: 12px 20px;
-    border-radius: 10px;
-    background: white;
-    color: #111827;
-    text-decoration: none;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #0b1120;
-    color: #aaa;
-}
-
-@media (max-width: 700px) {
-
-    header {
-        flex-direction: column;
-        gap: 15px;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    nav a {
-        margin: 5px;
+    html {
+      scroll-behavior: smooth;
     }
 
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(0, 255, 170, .12), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(80, 120, 255, .14), transparent 30%),
+        #07090d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 9, 13, .8);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #00e6a8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      color: #b8bec9;
+    }
+
+    .nav-links a:hover {
+      color: #00e6a8;
+    }
+
+    /* HERO */
     .hero {
-        flex-direction: column-reverse;
-        text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 70px;
     }
 
-    .hero h1 {
-        font-size: 40px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+      align-items: center;
     }
 
-    .photo {
-        width: 250px;
-        height: 300px;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0,230,168,.08);
+      border: 1px solid rgba(0,230,168,.22);
+      color: #00e6a8;
+      font-size: 13px;
+      margin-bottom: 22px;
     }
-}
-</style>
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: #00e6a8;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #00e6a8;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 86px);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #00e6a8, #67a7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text {
+      color: #aeb5c0;
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: #00e6a8;
+      color: #04110d;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,230,168,.2);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.08);
+      transform: translateY(-3px);
+    }
+
+    /* PROFILE */
+    .profile-card {
+      position: relative;
+      padding: 32px;
+      border-radius: 28px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+      );
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: #00e6a8;
+      filter: blur(90px);
+      opacity: .14;
+      top: -80px;
+      right: -70px;
+    }
+
+    /* RASM */
+    .avatar {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #00e6a8;
+      box-shadow: 0 15px 50px rgba(0,230,168,.25);
+      background: #111;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-card h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: #00e6a8;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-item {
+      padding: 13px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .info-item small {
+      display: block;
+      color: #747d8a;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .info-item strong {
+      font-size: 14px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      color: #00e6a8;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      letter-spacing: -2px;
+      line-height: 1.05;
+    }
+
+    .section-title p {
+      margin-top: 14px;
+      color: #858e9b;
+      max-width: 650px;
+    }
+
+    /* ACHIEVEMENTS */
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .achievement {
+      padding: 26px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .3s;
+    }
+
+    .achievement:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,230,168,.3);
+    }
+
+    .achievement-number {
+      color: #00e6a8;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .achievement h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .achievement p {
+      color: #8e97a4;
+      font-size: 14px;
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 28px 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 32px;
+      color: #00e6a8;
+    }
+
+    .stat span {
+      color: #808895;
+      font-size: 12px;
+    }
+
+    /* ACTIVITY */
+    .activity {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .activity-card {
+      padding: 28px;
+      border-radius: 20px;
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.055),
+        rgba(255,255,255,.02)
+      );
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .activity-icon {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .activity-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .activity-card p {
+      color: #858e9b;
+      font-size: 14px;
+    }
+
+    /* SOCIAL */
+    .social {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-card {
+      flex: 1;
+      min-width: 220px;
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: .3s;
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0,230,168,.3);
+    }
+
+    .social-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .social-card span {
+      color: #858e9b;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: #69717d;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 850px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .achievements {
+        grid-template-columns: 1fr;
+      }
+
+      .activity {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      section {
+        padding: 75px 0;
+      }
+
+      .profile-card {
+        padding: 24px;
+      }
+
+      .stats {
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 20px 10px;
+      }
+
+      .stat strong {
+        font-size: 26px;
+      }
+    }
+
+    /* ANIMATION */
+    .fade {
+      animation: fadeUp .8s ease both;
+    }
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h2>Ogʻabek Saidov</h2>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
 
-    <nav>
-        <a href="#about">Men haqimda</a>
-        <a href="#achievements">Yutuqlar</a>
-        <a href="#projects">Loyihalar</a>
-    </nav>
-</header>
+      <div class="logo">
+        Og‘abek<span>.</span>
+      </div>
 
-<section class="hero">
+      <ul class="nav-links">
+        <li><a href="#about">Men haqimda</a></li>
+        <li><a href="#achievements">Yutuqlar</a></li>
+        <li><a href="#activity">Faoliyat</a></li>
+        <li><a href="#contact">Aloqa</a></li>
+      </ul>
 
-    <div class="hero-text">
-        <div class="small">OFFICIAL WEBSITE</div>
+    </div>
+  </nav>
 
-        <h1>Salom, men <span>Ogʻabek Saidov</span></h1>
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="container hero-grid">
+
+      <div class="fade">
+
+        <div class="badge">
+          Portfolio • 2026
+        </div>
+
+        <h1>
+          Saidov<br>
+          <span>Og‘abek.</span>
+        </h1>
+
+        <p class="hero-text">
+          Samarqand davlat universiteti talabasi, intellektual
+          musobaqalar, startap loyihalar va innovatsion tashabbuslarda
+          faol ishtirok etuvchi yosh.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#about" class="btn btn-primary">
+            Men haqimda →
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Bog‘lanish
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE CARD -->
+      <div class="profile-card fade">
+
+        <!-- MUHIM: RASM FAYLI ogabek.jpg -->
+        <div class="avatar">
+          <img
+            src="./ogabek.jpg"
+            alt="Saidov Og‘abek"
+          >
+        </div>
+
+        <h2>
+          Saidov Og‘abek
+        </h2>
+
+        <div class="role">
+          Talaba • Yosh tashabbuskor
+        </div>
+
+        <div class="info">
+
+          <div class="info-item">
+            <small>Tug‘ilgan sana</small>
+            <strong>15-yanvar 2008-yil</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Tug‘ilgan joy</small>
+            <strong>Samarqand viloyati, Narpay tumani</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Fuqaroligi</small>
+            <strong>O‘zbekiston Respublikasi</strong>
+          </div>
+
+          <div class="info-item">
+            <small>Ta’lim</small>
+            <strong>Samarqand davlat universiteti</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <div class="section-label">
+          01 — Men haqimda
+        </div>
+
+        <h2>
+          Bilim, tajriba va<br>
+          yangi imkoniyatlar.
+        </h2>
 
         <p>
-            Oʻzbekistonlik yosh, taʼlim, intellektual loyihalar,
-            texnologiyalar va yoshlar tashabbuslariga qiziqadigan faol.
+          Men turli ta’limiy, intellektual, sport va innovatsion
+          loyihalarda faol qatnashib, yangi tajribalar orttirishga
+          intilaman.
         </p>
-    </div>
 
-    <img src="rasm.jpg" alt="Ogʻabek Saidov" class="photo">
+      </div>
 
-</section>
 
-<section id="about">
+      <div class="stats">
 
-    <h2>Men haqimda</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>👤 Shaxsiy maʼlumot</h3>
-            <p>
-                Ism-familiya: Ogʻabek Saidov
-            </p>
+        <div class="stat">
+          <strong>8+</strong>
+          <span>Asosiy yutuqlar</span>
         </div>
 
-        <div class="card">
-            <h3>🎓 Taʼlim</h3>
-            <p>
-                Taʼlim, bilim va shaxsiy rivojlanishga
-                doimiy eʼtibor beraman.
-            </p>
+        <div class="stat">
+          <strong>3+</strong>
+          <span>Yo‘nalish</span>
         </div>
 
-        <div class="card">
-            <h3>🧠 Qiziqishlar</h3>
-            <p>
-                Tarix, matematika, shaxmat, Zakovat,
-                texnologiyalar va futbol.
-            </p>
+        <div class="stat">
+          <strong>10+</strong>
+          <span>Loyiha va tadbirlar</span>
         </div>
+
+        <div class="stat">
+          <strong>2026</strong>
+          <span>Faoliyat yili</span>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<section id="achievements">
 
-    <h2>Yutuqlar va faoliyat</h2>
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
 
-    <div class="cards">
+    <div class="container">
 
-        <div class="card">
-            <h3>🏆 Loyihalar</h3>
-            <p>
-                Turli yoshlar loyihalari va tashabbuslarida
-                faol ishtirok.
-            </p>
+      <div class="section-title">
+
+        <div class="section-label">
+          02 — Yutuqlar
         </div>
 
-        <div class="card">
-            <h3>🚀 Startaplar</h3>
-            <p>
-                Startap va innovatsion loyihalarda ishtirok.
-            </p>
+        <h2>
+          Erishilgan natijalar.
+        </h2>
+
+        <p>
+          Ta’lim, sport, intellektual o‘yinlar va innovatsion
+          loyihalardagi asosiy yutuqlar.
+        </p>
+
+      </div>
+
+
+      <div class="achievements">
+
+        <div class="achievement">
+          <div class="achievement-number">
+            01 / OLIMPIADA
+          </div>
+
+          <h3>
+            “Bilim uchun 100 million”
+          </h3>
+
+          <p>
+            Olimpiadaning respublika bosqichi ishtirokchisi.
+          </p>
         </div>
 
-        <div class="card">
-            <h3>🤝 Koordinatorlik</h3>
-            <p>
-                Bir nechta viloyat miqyosidagi loyihalarda
-                koordinator sifatida faoliyat.
-            </p>
+
+        <div class="achievement">
+          <div class="achievement-number">
+            02 / INFORMATIKA
+          </div>
+
+          <h3>
+            Informatika va axborot texnologiyalari
+          </h3>
+
+          <p>
+            Viloyat bosqichi g‘olibi hamda muddatidan oldin
+            talaba bo‘lish imkoniyatini qo‘lga kiritgan.
+          </p>
         </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            03 / ZAKOVAT
+          </div>
+
+          <h3>
+            “Zakovat” intellektual o‘yinlari
+          </h3>
+
+          <p>
+            Bir necha bor tuman g‘olibi va viloyat bosqichi
+            ishtirokchisi.
+          </p>
+        </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            04 / FUTBOL
+          </div>
+
+          <h3>
+            DXX kubogi
+          </h3>
+
+          <p>
+            Futbol bo‘yicha jamoasi bilan DXX kubogi
+            musobaqasining 3-o‘rin sohibi.
+          </p>
+        </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            05 / SHAXMAT
+          </div>
+
+          <h3>
+            Shaxmat
+          </h3>
+
+          <p>
+            Bir necha bor tuman chempioni.
+          </p>
+        </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            06 / CAMP
+          </div>
+
+          <h3>
+            Ta’limiy va rivojlantiruvchi camp
+          </h3>
+
+          <p>
+            Turli ta’limiy va rivojlantiruvchi camp va
+            lagerlarning faol ishtirokchisi.
+          </p>
+        </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            07 / STARTUP
+          </div>
+
+          <h3>
+            Startap va innovatsiya
+          </h3>
+
+          <p>
+            Startap loyihalar va innovatsion tashabbuslarda
+            faol ishtirokchi.
+          </p>
+        </div>
+
+
+        <div class="achievement">
+          <div class="achievement-number">
+            08 / KOORDINATOR
+          </div>
+
+          <h3>
+            Loyiha koordinatsiyasi
+          </h3>
+
+          <p>
+            Viloyat miqyosidagi loyihalarda koordinator sifatida
+            faoliyat yuritgan.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<section id="projects">
 
-    <h2>Loyihalar</h2>
+  <!-- ACTIVITY -->
+  <section id="activity">
 
-    <div class="cards">
+    <div class="container">
 
-        <div class="card">
-            <h3>📚 Taʼlim loyihalari</h3>
-            <p>
-                Yoshlar uchun taʼlim va rivojlanishga
-                qaratilgan tashabbuslar.
-            </p>
+      <div class="section-title">
+
+        <div class="section-label">
+          03 — Faoliyat
         </div>
 
-        <div class="card">
-            <h3>🧠 Zakovat</h3>
-            <p>
-                Intellektual o‘yinlar va bilim loyihalari.
-            </p>
+        <h2>
+          Qiziqishlar va yo‘nalishlar.
+        </h2>
+
+      </div>
+
+
+      <div class="activity">
+
+        <div class="activity-card">
+          <div class="activity-icon">💡</div>
+
+          <h3>
+            Innovatsiya
+          </h3>
+
+          <p>
+            Yangi g‘oyalar, innovatsion tashabbuslar va
+            startap loyihalar bilan ishlash.
+          </p>
         </div>
 
-        <div class="card">
-            <h3>🌟 Yoshlar tashabbuslari</h3>
-            <p>
-                Yoshlar bilan bogʻliq turli loyihalar va
-                tadbirlarda ishtirok.
-            </p>
+
+        <div class="activity-card">
+          <div class="activity-icon">🧠</div>
+
+          <h3>
+            Intellektual rivojlanish
+          </h3>
+
+          <p>
+            Zakovat, shaxmat va turli bilim musobaqalarida
+            qatnashish.
+          </p>
         </div>
+
+
+        <div class="activity-card">
+          <div class="activity-icon">⚽</div>
+
+          <h3>
+            Sport
+          </h3>
+
+          <p>
+            Futbol va shaxmat orqali jamoaviylik,
+            strategik fikrlash va intizomni rivojlantirish.
+          </p>
+        </div>
+
+
+        <div class="activity-card">
+          <div class="activity-icon">🚀</div>
+
+          <h3>
+            Loyiha boshqaruvi
+          </h3>
+
+          <p>
+            Ishtirokchilar bilan ishlash, jamoani
+            muvofiqlashtirish va tadbirlarni tashkil etish.
+          </p>
+        </div>
+
+
+        <div class="activity-card">
+          <div class="activity-icon">🎓</div>
+
+          <h3>
+            Ta’lim
+          </h3>
+
+          <p>
+            Yangi bilimlarni o‘rganish va ta’limiy
+            loyihalarda faol ishtirok etish.
+          </p>
+        </div>
+
+
+        <div class="activity-card">
+          <div class="activity-icon">🤝</div>
+
+          <h3>
+            Networking
+          </h3>
+
+          <p>
+            Yangi insonlar bilan tanishish, tajriba almashish
+            va jamoaviy loyihalarda ishlash.
+          </p>
+        </div>
+
+      </div>
 
     </div>
 
-</section>
+  </section>
 
-<section class="social">
 
-    <h2>Men bilan bogʻlanish</h2>
+  <!-- CONTACT -->
+  <section id="contact">
 
-    <a href="https://t.me/Master_of_Logic">Telegram</a>
-    <a href="#">Instagram</a>
+    <div class="container">
 
-</section>
+      <div class="section-title">
 
-<footer>
-    © 2026 Ogʻabek Saidov. Barcha huquqlar himoyalangan.
-</footer>
+        <div class="section-label">
+          04 — Aloqa
+        </div>
+
+        <h2>
+          Men bilan bog‘laning.
+        </h2>
+
+        <p>
+          Ijtimoiy tarmoqlar orqali bog‘lanishingiz mumkin.
+        </p>
+
+      </div>
+
+
+      <div class="social">
+
+        <a
+          class="social-card"
+          href="https://www.instagram.com/_ogabek.saidov_/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>
+            Instagram ↗
+          </strong>
+
+          <span>
+            @_ogabek.saidov_
+          </span>
+        </a>
+
+
+        <div class="social-card">
+
+          <strong>
+            Telegram
+          </strong>
+
+          <span>
+            Telegram havolasi tez orada
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+      © 2026 Saidov Og‘abek. Barcha huquqlar himoyalangan.
+    </div>
+
+  </footer>
 
 </body>
-      </html>
+          </html>
+          
