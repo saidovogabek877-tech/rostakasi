@@ -108,12 +108,22 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(7,9,13,.
 .sc i{font-style:normal;font-size:24px}
 .sc strong{display:block;font-size:14px}.sc span{color:var(--mute);font-size:12px}
 
-.ring-text{position:absolute;inset:-46px;width:calc(100% + 92px);height:calc(100% + 92px);z-index:1;pointer-events:none;animation:spin 26s linear infinite;overflow:visible}
 .photo{margin:48px auto}
 .mq.rev>div{animation-direction:reverse;animation-duration:38s}
 .mq.fl span{color:var(--ink);-webkit-text-stroke:0;font-size:clamp(22px,3.2vw,34px)}
 .mq.fl span:hover{color:var(--mint)}
 .mq.fl{background:rgba(0,230,168,.04)}
+.orbit{position:absolute;inset:0;z-index:1;pointer-events:none;animation:spin 30s linear infinite}
+.orbit b{position:absolute;left:50%;top:50%;transform-origin:0 0;font:700 15px "Space Grotesk",sans-serif;text-shadow:0 0 12px currentColor;white-space:pre}
+.photo:hover .orbit{animation-duration:9s}
+.dash{position:absolute;inset:-18px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.28);animation:spin 46s linear infinite reverse;pointer-events:none}
+.sat{position:absolute;inset:-28px;z-index:3;border-radius:50%;pointer-events:none;animation:spin 9s linear infinite}
+.sat::before{content:"";position:absolute;top:-6px;left:50%;margin-left:-6px;width:12px;height:12px;border-radius:50%;background:var(--mint);box-shadow:0 0 22px 6px rgba(0,230,168,.8)}
+.sat.s2{inset:-18px;animation-duration:14s;animation-direction:reverse}
+.sat.s2::before{top:auto;bottom:-6px;background:var(--blue);box-shadow:0 0 22px 6px rgba(85,140,255,.8)}
+.photo img{aspect-ratio:1;object-position:center 22%;animation:pop 1.3s 1.5s cubic-bezier(.2,.9,.3,1) both}
+@keyframes pop{from{opacity:0;transform:scale(.6) rotate(-12deg);filter:blur(14px)}to{opacity:1;transform:none;filter:none}}
+.photo{margin:60px auto}
 /* WOW */
 #pre{position:fixed;inset:0;z-index:9000;background:var(--bg);display:grid;place-items:center;transition:opacity .8s,visibility .8s,transform .8s}
 #pre.gone{opacity:0;visibility:hidden;transform:scale(1.06)}
@@ -170,7 +180,7 @@ footer{padding:38px 0;text-align:center;border-top:1px solid var(--line);color:#
 
 @media(max-width:900px){
   .hero-grid,.about{grid-template-columns:1fr}
-  .photo{order:-1;width:min(280px,62vw)}
+  .photo{order:-1;width:min(240px,56vw)}
   .bento{grid-template-columns:repeat(2,1fr)}
   .card,.card.big{grid-column:span 1}
   .burger{display:block}
@@ -184,7 +194,7 @@ footer{padding:38px 0;text-align:center;border-top:1px solid var(--line);color:#
   .music{right:14px;bottom:14px}.totop{left:14px;bottom:14px}
   .mp{left:8px}.mn{right:8px}
 }
-@media(prefers-reduced-motion:reduce){#pre,#cur{display:none}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#pre,#cur{display:none}.photo img{opacity:1!important}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -224,12 +234,8 @@ footer{padding:38px 0;text-align:center;border-top:1px solid var(--line);color:#
       </div>
     </div>
     <div class="photo">
-      <svg class="ring-text" viewBox="0 0 100 100" aria-hidden="true">
-        <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00e6a8"/><stop offset="1" stop-color="#558cff"/></linearGradient>
-        <path id="rc" d="M50,50 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
-        <text font-size="5.4" font-weight="700" fill="url(#rg)" font-family="Space Grotesk,sans-serif"><textPath href="#rc" textLength="281" lengthAdjust="spacing">SAIDOV OG‘ABEK ✦ SAIDOV OG‘ABEK ✦ SAIDOV OG‘ABEK ✦ SAIDOV OG‘ABEK ✦ </textPath></text>
-      </svg>
-      <img src="ogabek.jpg" alt="Saidov Og‘abek" onerror="this.outerHTML='<div class=&quot;ph&quot;>O</div>'">
+      <div class="dash"></div><div class="sat s1"></div><div class="sat s2"></div><div class="orbit" id="orbit" aria-hidden="true"></div>
+      <img src="IMG_1590.jpeg" alt="Saidov Og‘abek" onerror="this.outerHTML='<div class=&quot;ph&quot;>O</div>'">
     </div>
   </div>
 </header>
@@ -476,6 +482,25 @@ $("#copyTg").onclick=async()=>{
 const tt=$("#toTop");
 addEventListener("scroll",()=>tt.classList.toggle("show",scrollY>700),{passive:true});
 tt.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+
+/* ---------- Rasm atrofida aylanuvchi ism ---------- */
+(function(){
+  const ph=$(".photo"),orb=$("#orbit"),unit="SAIDOV OG‘ABEK ✦ ";
+  function build(){
+    const R=ph.offsetWidth/2+34;
+    const k=Math.max(2,Math.round(2*Math.PI*R/17/unit.length)),N=k*unit.length,step=360/N;
+    orb.innerHTML="";
+    for(let i=0;i<N;i++){
+      const ch=unit[i%unit.length],b=document.createElement("b");
+      b.textContent=ch;
+      b.style.transform=`rotate(${i*step}deg) translate(-50%,-${R}px)`;
+      b.style.color=ch==="✦"?"#ffd166":`hsl(${158+(i/N)*95},100%,66%)`;
+      orb.appendChild(b);
+    }
+  }
+  build();addEventListener("resize",build);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(build);
+})();
 </script>
 </body>
 </html>
